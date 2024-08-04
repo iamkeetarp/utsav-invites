@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchBox from "../Components/SearchBox";
+import labels from "../messages/labels";
 
-const Navbar2 = () => {
+const Navbar = () => {
+  const appName = process.env.REACT_APP_NAME;
+
   const [isOpen, setIsOpen] = useState(false);
+  const [selected, setSelected] = useState("/");
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -13,19 +17,18 @@ const Navbar2 = () => {
     <nav className="bg-white shadow-md">
       <div className="max-w-1xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
-          <div className="flex-1 flex items-center justify-start">
-            <h1
-              className="text-sm md:text-xl lg:text-2xl font-bold"
-              style={{ fontFamily: "Roboto, sans-serif" }}
-            >
-              Utsav Invites
-            </h1>
+          <div className="flex items-center justify-start">
+            <Link to={labels.routeLables.home}>
+              <h1 className="text-2xl md:text-xl lg:text-4xl  font-Raleway text-green-primary font-black">
+                {appName && appName}
+              </h1>
+            </Link>
           </div>
-          <SearchBox />
+
           <div className="flex items-center sm:hidden">
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-green-primary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               aria-controls="mobile-menu"
               aria-expanded="false"
               onClick={toggleMenu}
@@ -69,31 +72,55 @@ const Navbar2 = () => {
           <div className="hidden sm:flex sm:items-center sm:ml-6">
             <div className="flex space-x-4">
               <Link
-                to="/"
-                className="text-gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                to={labels.routeLables.home}
+                onClick={() => setSelected(labels.routeLables.home)}
+                className={`text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm font-medium nav-item nav-link-active ${
+                  selected === "/" ? "text-green-primary font-semibold" : ""
+                }`}
               >
-                Home
+                {labels.navbar.home}
               </Link>
               <Link
-                to="/about"
-                className="text-gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                onClick={() => setSelected(labels.routeLables.shop)}
+                to={labels.routeLables.shop}
+                className={`text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm font-medium nav-item nav-link-active ${
+                  selected === "/shop" ? "text-green-primary font-semibold" : ""
+                }`}
               >
-                About
+                {labels.navbar.shop}
               </Link>
               <Link
-                to="/services"
-                className="text-gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                onClick={() => setSelected(labels.routeLables.shopDetails)}
+                to={labels.routeLables.shopDetails}
+                className={`text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm font-medium nav-item nav-link-active ${
+                  selected === "/shop-details"
+                    ? "text-green-primary font-semibold"
+                    : ""
+                }`}
               >
-                Services
+                {labels.navbar.shopDetails}
               </Link>
               <Link
-                to="/contact"
-                className="text-gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                onClick={() => setSelected(labels.routeLables.pages)}
+                to={labels.routeLables.pages}
+                className={`text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm font-medium nav-item nav-link-active ${
+                  selected === "/pages" ? "text-green-primary font-semibold" : ""
+                }`}
               >
-                Contact
+                {labels.navbar.pages}
+              </Link>
+              <Link
+                onClick={() => setSelected(labels.routeLables.contact)}
+                to={labels.routeLables.contact}
+                className={`text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm font-medium nav-item nav-link-active ${
+                  selected === "/contact" ? "text-green-primary font-semibold" : ""
+                }`}
+              >
+                {labels.navbar.contact}
               </Link>
             </div>
           </div>
+          {/* <SearchBox /> */}
         </div>
       </div>
 
@@ -103,28 +130,54 @@ const Navbar2 = () => {
       >
         <div className="px-2 pt-2 pb-3 space-y-1 border-red-400">
           <Link
-            to="/"
-            className="text-gray-700 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            onClick={() => {
+              setIsOpen(!isOpen);
+              setSelected(labels.routeLables.contact);
+            }}
+            to={labels.routeLables.home}
+            className="text-gray-700 hover:text-green-primary block px-3 py-2 rounded-md text-base font-medium"
           >
-            Home
+            {labels.navbar.home}
           </Link>
           <Link
-            to="/about"
-            className="text-gray-700 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            onClick={() => {
+              setIsOpen(!isOpen);
+              setSelected(labels.routeLables.shop);
+            }}
+            to={labels.routeLables.shop}
+            className="text-gray-700 hover:text-green-primary block px-3 py-2 rounded-md text-base font-medium"
           >
-            About
+            {labels.navbar.shop}
           </Link>
           <Link
-            to="/services"
-            className="text-gray-700 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            onClick={() => {
+              setIsOpen(!isOpen);
+              setSelected(labels.routeLables.shopDetails);
+            }}
+            to={labels.routeLables.shopDetails}
+            className="text-gray-700 hover:text-green-primary block px-3 py-2 rounded-md text-base font-medium"
           >
-            Services
+            {labels.navbar.shopDetails}
           </Link>
           <Link
-            to="/contact"
-            className="text-gray-700 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            onClick={() => {
+              setIsOpen(!isOpen);
+              setSelected(labels.routeLables.pages);
+            }}
+            to={labels.routeLables.pages}
+            className="text-gray-700 hover:text-green-primary block px-3 py-2 rounded-md text-base font-medium"
           >
-            Contact
+            {labels.navbar.pages}
+          </Link>
+          <Link
+            onClick={() => {
+              setIsOpen(!isOpen);
+              setSelected(labels.routeLables.contact);
+            }}
+            to={labels.routeLables.contact}
+            className="text-gray-700 hover:text-green-primary block px-3 py-2 rounded-md text-base font-medium"
+          >
+            {labels.navbar.contact}
           </Link>
         </div>
       </div>
@@ -132,4 +185,4 @@ const Navbar2 = () => {
   );
 };
 
-export default Navbar2;
+export default Navbar;

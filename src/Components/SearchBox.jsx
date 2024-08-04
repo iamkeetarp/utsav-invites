@@ -10,7 +10,7 @@ const SearchBox = () => {
         </div>
         <input
           type="text"
-          className="px-4 py-1.5 w-32 md:w-36 lg:w-64 focus:outline-none text-gray-500"
+          className="px-4 py-1.5 w-32 md:w-36 lg:w-64 focus:outline-none text-green-primary"
           placeholder="Search..."
         />
       </div>
