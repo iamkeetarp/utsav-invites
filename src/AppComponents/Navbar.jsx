@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import SearchBox from "../Components/SearchBox";
 import labels from "../messages/labels";
 
 const Navbar = () => {
@@ -74,8 +73,8 @@ const Navbar = () => {
               <Link
                 to={labels.routeLables.home}
                 onClick={() => setSelected(labels.routeLables.home)}
-                className={`text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm font-medium nav-item nav-link-active ${
-                  selected === "/" ? "text-green-primary font-semibold" : ""
+                className={`text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm nav-item nav-link-active ${
+                  selected === "/" ? "text-green-primary" : ""
                 }`}
               >
                 {labels.navbar.home}
@@ -83,8 +82,8 @@ const Navbar = () => {
               <Link
                 onClick={() => setSelected(labels.routeLables.shop)}
                 to={labels.routeLables.shop}
-                className={`text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm font-medium nav-item nav-link-active ${
-                  selected === "/shop" ? "text-green-primary font-semibold" : ""
+                className={`text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm  nav-item nav-link-active ${
+                  selected === "/shop" ? "text-green-primary " : ""
                 }`}
               >
                 {labels.navbar.shop}
@@ -92,10 +91,8 @@ const Navbar = () => {
               <Link
                 onClick={() => setSelected(labels.routeLables.shopDetails)}
                 to={labels.routeLables.shopDetails}
-                className={`text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm font-medium nav-item nav-link-active ${
-                  selected === "/shop-details"
-                    ? "text-green-primary font-semibold"
-                    : ""
+                className={`text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm  nav-item nav-link-active ${
+                  selected === "/shop-details" ? "text-green-primary " : ""
                 }`}
               >
                 {labels.navbar.shopDetails}
@@ -103,8 +100,8 @@ const Navbar = () => {
               <Link
                 onClick={() => setSelected(labels.routeLables.pages)}
                 to={labels.routeLables.pages}
-                className={`text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm font-medium nav-item nav-link-active ${
-                  selected === "/pages" ? "text-green-primary font-semibold" : ""
+                className={`text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm  nav-item nav-link-active ${
+                  selected === "/pages" ? "text-green-primary " : ""
                 }`}
               >
                 {labels.navbar.pages}
@@ -112,8 +109,8 @@ const Navbar = () => {
               <Link
                 onClick={() => setSelected(labels.routeLables.contact)}
                 to={labels.routeLables.contact}
-                className={`text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm font-medium nav-item nav-link-active ${
-                  selected === "/contact" ? "text-green-primary font-semibold" : ""
+                className={`text-gray-700 hover:text-green-primary px-3 py-2 rounded-md text-sm  nav-item nav-link-active ${
+                  selected === "/contact" ? "text-green-primary " : ""
                 }`}
               >
                 {labels.navbar.contact}
@@ -135,7 +132,7 @@ const Navbar = () => {
               setSelected(labels.routeLables.contact);
             }}
             to={labels.routeLables.home}
-            className="text-gray-700 hover:text-green-primary block px-3 py-2 rounded-md text-base font-medium"
+            className="text-gray-700 hover:text-green-primary block px-3 py-2 rounded-md text-base "
           >
             {labels.navbar.home}
           </Link>
@@ -145,7 +142,7 @@ const Navbar = () => {
               setSelected(labels.routeLables.shop);
             }}
             to={labels.routeLables.shop}
-            className="text-gray-700 hover:text-green-primary block px-3 py-2 rounded-md text-base font-medium"
+            className="text-gray-700 hover:text-green-primary block px-3 py-2 rounded-md text-base "
           >
             {labels.navbar.shop}
           </Link>
@@ -155,7 +152,7 @@ const Navbar = () => {
               setSelected(labels.routeLables.shopDetails);
             }}
             to={labels.routeLables.shopDetails}
-            className="text-gray-700 hover:text-green-primary block px-3 py-2 rounded-md text-base font-medium"
+            className="text-gray-700 hover:text-green-primary block px-3 py-2 rounded-md text-base "
           >
             {labels.navbar.shopDetails}
           </Link>
@@ -165,7 +162,7 @@ const Navbar = () => {
               setSelected(labels.routeLables.pages);
             }}
             to={labels.routeLables.pages}
-            className="text-gray-700 hover:text-green-primary block px-3 py-2 rounded-md text-base font-medium"
+            className="text-gray-700 hover:text-green-primary block px-3 py-2 rounded-md text-base "
           >
             {labels.navbar.pages}
           </Link>
@@ -175,7 +172,7 @@ const Navbar = () => {
               setSelected(labels.routeLables.contact);
             }}
             to={labels.routeLables.contact}
-            className="text-gray-700 hover:text-green-primary block px-3 py-2 rounded-md text-base font-medium"
+            className="text-gray-700 hover:text-green-primary block px-3 py-2 rounded-md text-base "
           >
             {labels.navbar.contact}
           </Link>
