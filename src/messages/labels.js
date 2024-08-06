@@ -1,16 +1,12 @@
 const labels = {
   navbar: {
     home: "Home",
-    shop: "Shop",
-    shopDetails: "Shop Details",
-    pages: "Pages",
+    about: "About us",
     contact: "Contact",
   },
   routeLables: {
     home: "/",
-    shop: "/shop",
-    shopDetails: "/shop-details",
-    pages: "/pages",
+    about: "/about",
     contact: "/contact",
   },
 };
